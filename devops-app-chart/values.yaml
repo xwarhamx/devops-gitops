@@ -1,0 +1,11 @@
+replicaCount: 2
+
+app:
+  name: devops-app
+
+image:
+  repository: nginx
+  tag: latest
+
+ingress:
+  host: app.xwarhamx.ru
