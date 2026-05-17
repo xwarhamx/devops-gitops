@@ -11,7 +11,7 @@ spec:
   ingressClassName: nginx
 
   rules:
-  - host: app.xwarhamx.ru
+  - host: xwarhamx.ru
 
     http:
       paths:
