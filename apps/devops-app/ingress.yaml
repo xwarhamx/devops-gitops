@@ -5,25 +5,27 @@ metadata:
   name: devops-app-ingress
 
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 
 spec:
-
   ingressClassName: traefik
 
-  ingressClassName: nginx
+  tls:
+    - hosts:
+        - xwarhamx.ru
+      secretName: devops-app-tls
 
   rules:
-  - host: xwarhamx.ru
+    - host: xwarhamx.ru
 
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
 
-        backend:
-          service:
-            name: devops-app-service
+            backend:
+              service:
+                name: devops-app-service
 
-            port:
-              number: 80
+                port:
+                  number: 80
